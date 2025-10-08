@@ -2,7 +2,7 @@ namespace crmAPI.Models
 {
     public class Deal
     {
-        public int DealId { get; set; }
+        public int Id { get; set; }
         public string Description { get; set; }
         public decimal Value { get; set; }
         public DateTime DealDate { get; set; }

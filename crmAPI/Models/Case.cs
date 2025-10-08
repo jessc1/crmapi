@@ -2,7 +2,7 @@ namespace crmAPI.Models
 {
     public class Case
     {
-        public int CaseId { get; set; }
+        public int Id { get; set; }
         public int ContactId { get; set; }
         public required string Subject { get; set; }
         public CaseStatus Status { get; set; }
