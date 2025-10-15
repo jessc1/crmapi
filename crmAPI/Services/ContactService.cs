@@ -1,41 +1,48 @@
 using crmAPI.Models;
+using crmAPI.Repositories;
 namespace crmAPI.Services
 {
-    public class ContactService
+    public class ContactService: IContactService
     {
-        private readonly List<Contact> _contacts = [];
-        public IEnumerable<Contact> GetContacts() => _contacts;
+        //private readonly List<Contact> _contacts = [];
+        private readonly IContactRepository _contactRepository;
+        private int _nextId = 1;
 
-        public Contact GetContactById(int id) =>
-            _contacts.First(c => c.Id == id);
+        public ContactService(IContactRepository contactRepository)
+        {
+            _contactRepository = contactRepository;
+        }
+
+        public List<Contact> GetContacts()
+        {
+            return _contactRepository.GetContacts();
+        }            
+
+        public Contact GetContactById(int id)
+        {
+            return _contactRepository.GetContactById(id);
+        }           
 
         public void AddContact(Contact contact)
         {
-            contact.Id = _contacts.Count + 1;
-            _contacts.Add(contact);
+            ArgumentNullException.ThrowIfNull(contact);
+            contact.Id = _nextId++;
+            _contactRepository.AddContact(contact);
         }
 
-        public void UpdateContact(int id, Contact Updatecontact)
+        public void UpdateContact(int id, Contact updateContact)
         {
-            var contact = _contacts.First(c => c.Id == id);
-            if (_contacts != null)
-            {
-                contact.FirtName = Updatecontact.FirtName;
-                contact.LastName = Updatecontact.LastName;
-                contact.Email = Updatecontact.Email;
-                contact.Phone = Updatecontact.Phone;
-                contact.CompanyId = Updatecontact.CompanyId;
-                contact.Company = Updatecontact.Company;
-
-            }
+            var contact = _contactRepository.GetContactById(id);
+            if (_contactRepository != null)
+                _contactRepository.UpdateContact(id, updateContact);
         }
 
         public void DeleteContact(int id)
         {
-            var contact = _contacts.First(c => c.Id == id);
-            if (_contacts != null)
+            var contact = _contactRepository.GetContactById(id);
+            if (contact != null)
             {
-                _contacts.Remove(contact);
+                _contactRepository.DeleteContact(id);
             }
         }
     }

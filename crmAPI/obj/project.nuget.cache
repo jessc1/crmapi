@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "l6hswy50Wrg=",
+  "dgSpecHash": "OpgyBKbebFA=",
   "success": true,
   "projectFilePath": "C:\\Users\\Maria Jessica\\Documents\\crmAPI\\crmAPI\\crmAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Maria Jessica\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Maria Jessica\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.3\\microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
-    "C:\\Users\\Maria Jessica\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+    "C:\\Users\\Maria Jessica\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\Maria Jessica\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\Maria Jessica\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

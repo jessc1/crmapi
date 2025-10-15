@@ -7,9 +7,9 @@ namespace crmAPI.Controllers
     [ApiController]
     public class ContactsController : ControllerBase
     {
-        private readonly ContactService _contactService;
+        private readonly IContactService _contactService;
 
-        public ContactsController(ContactService contactService)
+        public ContactsController(IContactService contactService)
         {
             _contactService = contactService;
         }
@@ -20,7 +20,7 @@ namespace crmAPI.Controllers
             return Ok(_contactService.GetContacts());
         }
         [HttpGet("{id}")]
-        public ActionResult<Contact> GetContact(int id)
+        public ActionResult<Contact> GetContactById(int id)
         {
             var contact = _contactService.GetContactById(id);
             if (contact == null)

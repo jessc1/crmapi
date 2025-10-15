@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crmAPI", "crmAPI\crmAPI.csproj", "{EF0313B8-831F-47BF-9342-5587D2DAAE05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crmAPI.Tests", "crmAPI.Tests\crmAPI.Tests.csproj", "{73B8FADC-1A57-47FF-A6D6-24B41341157E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{EF0313B8-831F-47BF-9342-5587D2DAAE05}.Release|x64.Build.0 = Release|Any CPU
 		{EF0313B8-831F-47BF-9342-5587D2DAAE05}.Release|x86.ActiveCfg = Release|Any CPU
 		{EF0313B8-831F-47BF-9342-5587D2DAAE05}.Release|x86.Build.0 = Release|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Debug|x64.Build.0 = Debug|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Debug|x86.Build.0 = Debug|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Release|x64.ActiveCfg = Release|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Release|x64.Build.0 = Release|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Release|x86.ActiveCfg = Release|Any CPU
+		{73B8FADC-1A57-47FF-A6D6-24B41341157E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
