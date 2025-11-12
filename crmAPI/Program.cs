@@ -1,3 +1,7 @@
+using crmAPI.Models;
+using crmAPI.Repositories;
+using crmAPI.Services;
+
 namespace crmAPI
 {
     public class Program
@@ -6,6 +10,8 @@ namespace crmAPI
         {
             var builder =
                 WebApplication.CreateBuilder(args);
+            builder.Services.AddScoped<IContactService, ContactService>();
+            builder.Services.AddScoped<IContactRepository, ContactRepository>();
             builder.Services.AddControllers();
             var app = builder.Build();
             app.UseAuthorization();

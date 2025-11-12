@@ -17,6 +17,10 @@ namespace crmAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Contact>> GetContacts()
         {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             return Ok(_contactService.GetContacts());
         }
         [HttpGet("{id}")]

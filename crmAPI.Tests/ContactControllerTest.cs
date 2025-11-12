@@ -7,11 +7,11 @@ namespace Tests
 {
     public class ContactsControllerTests
     {
-        private readonly Mock<IContactService> _mockContactService;
+        private readonly Mock<ContactService> _mockContactService;
         private readonly ContactsController _controller;
         public ContactsControllerTests()
         {
-            _mockContactService = new Mock<IContactService>();
+            _mockContactService = new Mock<ContactService>();
             _controller = new ContactsController(_mockContactService.Object);
 
         }
@@ -40,10 +40,9 @@ namespace Tests
 
             };
             _mockContactService.Setup(s => s.GetContactById(1)).Returns(expectedContact);
-            var controller = new ContactsController(_mockContactService.Object);
 
             //Acting
-            var result = controller.GetContactById(1);
+            var result = _controller.GetContactById(1);
 
             //Assert
             var okResult = Assert.IsType<OkObjectResult>(result.Result);
@@ -54,17 +53,13 @@ namespace Tests
         [Fact]
         public void GetContactById_ReturnsNotFound_ForInvalidId()
         {
-            var mockContactService = new Mock<IContactService>();
-            mockContactService.Setup(s => s.GetContactById(8)).Returns((Contact)null);
-            var controller = new ContactsController(mockContactService.Object);
-            var result = controller.GetContactById(8);
+            _mockContactService.Setup(s => s.GetContactById(8)).Returns((Contact)null);
+            var result = _controller.GetContactById(8);
             Assert.IsType<NotFoundResult>(result.Result);
         }
         [Fact]
-        public void GetContacts_ReturnsOk()
-        {
-            var mockContactService = new Mock<IContactService>();
-            var controller = new ContactsController(mockContactService.Object);
+        public void GetContacts_ReturnsOk()        {
+           
             var expectedCompany = new Company
             {
                 Id = 1,
@@ -98,12 +93,11 @@ namespace Tests
 
             };
 
-            mockContactService.Setup(s => s.GetContacts()).Returns(contacts);
-            var result = controller.GetContacts();
+            _mockContactService.Setup(s => s.GetContacts()).Returns(contacts);
+            var result = _controller.GetContacts();
             var okResult = Assert.IsType<OkObjectResult>(result.Result);
             var model = Assert.IsAssignableFrom<ICollection<Contact>>(okResult.Value);
             Assert.Equal(2, model.Count);
-            //mockContactService.Verify(s => s.GetContacts(), Times.Once());
 
         }
         [Fact]
@@ -159,7 +153,6 @@ namespace Tests
                 Company = expectedCompany
             };
             _mockContactService.Setup(s => s.AddContact(invalidContact));
-            //ontroller.ModelState.AddModelError("FirstName", "First name is required");
             var result = _controller.CreateContact(invalidContact);
 
             Assert.IsType<NoContentResult>(result.Result);

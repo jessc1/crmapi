@@ -7,36 +7,35 @@ namespace crmAPI.Repositories
     {
         private readonly List<Contact> _contactsRepository = [];
         
-        public ContactRepository(List<Contact> contactsRepository)
+        public ContactRepository()
         {
-            _contactsRepository = contactsRepository;
-            
-        }
-        public List<Contact> GetContacts()
-        {
-            return new List<Contact>
+            var expectedCompany = new Company
             {
-                new Contact {
-                    Id = 1,
-                    FirstName = "Yi",
-                    LastName = "Cheng",
-                    Email = "chengyi@email.com",
-                    Phone = "11912345678",
-                    CompanyId = 1,
-                    Company = "IQYI"
-                },
-                 new Contact {
-                    Id = 2,
-                    FirstName = "Yilun",
-                    LastName = "Fang",
-                    Email = "fangyilun@email.com",
-                    Phone = "11985858686",
-                    CompanyId = 1,
-                    Company = "IQYI"
-                },
+                Id = 1,
+                Name = "IQYI",
+                Industry = "TV",
+                WebSite = "iqyi.com",
+                Contacts = [],
 
             };
+            _contactsRepository.Add( new Contact
+            {
+                Id = 1,
+                FirstName = "Yi",
+                LastName = "Cheng",
+                Email = "chengyi@email.com",
+                Phone = "11912345678",
+                CompanyId = 1,
+                Company = expectedCompany,
+
+
+            }
+
+            );
+            
         }
+        public List<Contact> GetContacts() => _contactsRepository;
+       
         public Contact GetContactById(int id)
         {
             return _contactsRepository.First(c => c.Id == id);
